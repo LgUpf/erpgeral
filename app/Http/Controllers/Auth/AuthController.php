@@ -12,6 +12,14 @@ class AuthController extends Controller
 {
     public function auth(Request $request)
     {
+        // PARA CRIPTOGRAFAR A SENHA DO USER NO BD
+        // $user = User::first();
+        // $user->password=bcrypt('login@upf.br');
+        // $user->save();
+
+        // fim
+
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',

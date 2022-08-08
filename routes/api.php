@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClientesController;
+use App\Http\Controllers\Admin\ProdutosController;
 use App\Http\Controllers\Admin\CargosController;
 use App\Http\Controllers\Admin\ACL\PerfilsController;
 use App\Http\Controllers\Admin\CategoriasController;
@@ -68,5 +69,11 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
         Route::get('perfil/{id}/plano', 'plano');
         Route::post('perfil/{id}/plano/store', 'attachPlanoProfile');
         Route::get('perfil/{id}/plano/{idPlano}/detach', 'detachPlanoProfile');
+    });
+    Route::controller(ProdutosController::class)->group(function () {
+        Route::get('/produtos', 'index');
+        Route::get('/produtos/{id}', 'buscarProdutoPorId');
+        Route::post('/produtos', 'store');
+        Route::delete('/produtos/{cod}', 'deletarProduto');
     });
 });

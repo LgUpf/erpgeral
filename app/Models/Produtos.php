@@ -6,15 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\UuidTrait;
 
-class Cargos extends Model
+
+class Produtos extends Model
 {
-    use HasFactory;
+    use HasFactory, UuidTrait;
 
     public $incrementing = false;
-    protected $keyType = 'uuid';
+    protected $keyType = 'cod';
+
 
     protected $fillable = [
         'nome',
-        'user_id',
+        'preco_custo',
+        'preco_venda',
+        'codigo_barra',
+        'status',
     ];
 }
