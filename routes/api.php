@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClientesController;
 use App\Http\Controllers\Admin\ProdutosController;
+use App\Http\Controllers\Admin\FornecedoresController;
 use App\Http\Controllers\Admin\CargosController;
 use App\Http\Controllers\Admin\ACL\PerfilsController;
 use App\Http\Controllers\Admin\CategoriasController;
@@ -75,5 +76,11 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum']], function () {
         Route::get('/produtos/{id}', 'buscarProdutoPorId');
         Route::post('/produtos', 'store');
         Route::delete('/produtos/{cod}', 'deletarProduto');
+    });
+        Route::controller(FornecedoresController::class)->group(function () {
+        Route::get('/fornecedores', 'index');
+        Route::get('/fornecedores/{id}', 'buscarFornecedorPorId');
+        Route::post('/fornecedores', 'store');
+        Route::delete('/fornecedores/{id}', 'deletarFornecedor');
     });
 });

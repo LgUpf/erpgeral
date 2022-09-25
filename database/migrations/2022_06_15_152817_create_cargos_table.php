@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('cargos', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 191);
-            $table->uuid('cod');
-            $table->unsignedBigInteger('user_id');
+            $table->uuid('cod')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('perfil_id')->nullable();
+            $table->foreign('perfil_id')->references('id')->on('perfils');
             $table->timestamps();
 
         });

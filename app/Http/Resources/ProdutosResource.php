@@ -19,6 +19,7 @@ class ProdutosResource extends JsonResource
             'codigo' => $this->cod,
             'preco_custo' => $this->preco_custo,
             'preco_venda' => $this->preco_venda,
+            'quantidade' => $this->quantidade,
             'codigo_barra' => $this->codigo_barra,
             'status' => $this->status
         ];

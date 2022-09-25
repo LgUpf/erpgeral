@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('nome', 191);
             $table->decimal('desconto', 12,2)->nullable();
             $table->boolean('ativo')->default(true);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('perfil_id')->nullable();
+            $table->foreign('perfil_id')->references('id')->on('perfils');
             $table->timestamps();
         });
     }

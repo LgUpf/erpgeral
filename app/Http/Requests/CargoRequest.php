@@ -25,6 +25,7 @@ class CargoRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'min:3', 'max:155']
+            'perfil_id' => ['required', 'min:1', 'max:155']
         ];
     }
 }

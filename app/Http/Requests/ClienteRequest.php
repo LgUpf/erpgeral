@@ -35,7 +35,7 @@ class ClienteRequest extends FormRequest
             'logradouro' => ['min:5', 'max:50'],
             'endereco' => ['min:5', 'max:80'],
             'numero' => ['max:10'],
-            'cep' => ['min:10'],
+            'cep' => ['min:5'],
             'email' => ['min:7', 'max:70']
         ];
     }

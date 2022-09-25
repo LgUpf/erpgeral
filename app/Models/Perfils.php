@@ -26,4 +26,8 @@ class Perfils extends Model
     {
         return $this->belongsToMany(Planos::class,'plano_perfil','perfil_id','plano_id');
     }
+     public function cargos()
+    {
+        return $this->hasMany("App\Models\Cargos");
+    }
 }

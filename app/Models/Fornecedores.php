@@ -4,21 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\UuidTrait;
 
-class Cargos extends Model
+class Fornecedores extends Model
 {
     use HasFactory;
 
     public $incrementing = false;
-    protected $keyType = 'uuid';
-
     protected $fillable = [
         'nome',
-        'user_id',
-        'perfil_id',
+        'cnpj',
+        'status',
+        'pais',
+        'estado',
+        'cidade',
+        'bairro',
+        'endereco',
+        'numero',
+        'cep',
+        'telefone',
     ];
-    public function perfil(){
-        return $this->belongsTo("App\Models\Perfils");
-    }
 }

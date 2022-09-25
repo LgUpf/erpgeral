@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedBigInteger('perfil_id')->nullable();
+            $table->foreign('perfil_id')->references('id')->on('perfils');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
